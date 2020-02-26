@@ -21,3 +21,38 @@
 /.pki
 
 /.ssh
+
+# Arquivos Windows
+/3D\ Objects/
+/AppData/
+/Contacts/
+/Cookies@
+/Desktop/
+/Documents/
+/Downloads/
+/Favorites/
+/IntelGraphicsProfiles/
+/Links/
+/MicrosoftEdgeBackups/
+/Music/
+/NTUSER.*
+/ntuser.*
+/OneDrive/
+/Pictures/
+/Recent@
+/Saved Games/
+/Searches/
+/Videos/
+
+/.AndroidStudio*
+/.VirtualBox/
+/.android/
+/.cargo/
+/.git-for-windows-updater
+/.gitconfig
+/.ionic/
+/.node-gyp/
+/.rustup/
+/.v8flags.*
+/.vscode/
+
