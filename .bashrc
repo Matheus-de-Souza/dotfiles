@@ -66,3 +66,14 @@ alias ....='cd ../../..' # Go up three directories
 alias -- -='cd -'        # Go back
 
 # PS1='[\u@\h \W]\$ '
+
+#================================#
+#=== Stop Terminal Annoyances ===#
+#================================#
+
+# Stop Ctrl+S freezing on terminal
+stty -ixon
+
+# Stop beeping on tabs
+setterm -bfreq 0
+
