@@ -56,3 +56,6 @@
 /.v8flags.*
 /.vscode/
 
+/.docker/
+/.wget-hsts
+/.gnupg/
