@@ -6,9 +6,10 @@
 [[ $- != *i* ]] && return
 
 #====================#
-#=== Arch Aliases ===#
+#=== TODO Aliases ===#
 #====================#
-alias pacman='pacman --color=auto'
+
+# PS1='[\u@\h \W]\$ '
 
 #===================#
 #=== Git Aliases ===#
@@ -42,7 +43,7 @@ case $OSTYPE in
     [[ $XCLIP ]] && \
     alias pbcopy="$XCLIP -selection clipboard" && \
     alias pbpaste="$XCLIP -selection clipboard -o"
-    ;;   
+    ;;
 esac
 
 # to use it just install xclip on your distribution and it would work like:
@@ -54,18 +55,29 @@ esac
 # cat ~/.ssh/id_rsa.pub | pbcopy
 # have fun!
 
-#=========================#
-#=== Directory Aliases ===#
-#=========================#
+#==============================#
+#=== Directory/File Aliases ===#
+#==============================#
 
 alias ls='ls --color=auto'
+alias lsa='ls -la --color=auto' # Use a long listing format
+
+alias .='pwd'
 alias .='ls'             # Go up one directory
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
 alias ....='cd ../../..' # Go up three directories
 alias -- -='cd -'        # Go back
 
-# PS1='[\u@\h \W]\$ '
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+
+#==================================#
+#=== System Maintenance Aliases ===#
+#==================================#
+
+alias pacman='pacman --color=auto'
+alias df='df --human-readable' # Show Filesystem Size
 
 #================================#
 #=== Stop Terminal Annoyances ===#
@@ -77,3 +89,7 @@ stty -ixon
 # Stop beeping on tabs
 setterm -bfreq 0
 
+#===============#
+#=== Helpers ===#
+#===============#
+alias tb="nc termbin.com 9999" 
