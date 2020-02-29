@@ -93,3 +93,10 @@ setterm -bfreq 0
 #=== Helpers ===#
 #===============#
 alias tb="nc termbin.com 9999" 
+
+# Set up Node Version Manager
+NVM_INIT=/usr/share/nvm/init-nvm.sh
+if test -e $NVM_INIT; then
+    source $NVM_INIT
+fi
+
