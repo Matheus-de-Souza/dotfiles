@@ -19,7 +19,9 @@ cp patched/*.ttf ~/.fonts/oh-my-git
 cd -
 
 # update the font-info cache
-sudo fc-cache -fv ~/.fonts
+if hash fc-cache 2>/dev/null; then
+    sudo fc-cache -fv ~/.fonts
+fi
 
 
 echo 'Git terminal configuration done!'
