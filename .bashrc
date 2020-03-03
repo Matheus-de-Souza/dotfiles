@@ -22,9 +22,9 @@ alias gca='git commit --amend --no-edit-message'
 
 alias gb='git branch'
 alias gco='git checkout'
+alias gl="git shortlog -sn"
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias gg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-alias gsl="git shortlog -sn"
+alias glg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
 alias gwc="git whatchanged"
 
 #==========================#
@@ -56,7 +56,8 @@ esac
 alias ls='ls --color=auto'
 alias lsa='ls -la --color=auto' # Use a long listing format
 
-alias .='pwd'
+alias ~='cd ~/'          # Go to home
+alias .='pwd'            # Print current directory
 alias .='ls'             # Go up one directory
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
@@ -151,10 +152,10 @@ function parse_git_dirty {
 
 #if [ command -v tput >/dev/null 2>&1 ]; then
   PS1="\A \[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;6m\][\w]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\$ "
-#else 
+#else
   #PS1='\A \u@\h [\w]\n\$ '
 #fi
 
-if [ "$(hostname)" == "arch" ]; then 
+if [ "$(hostname)" == "arch" ]; then
   source $HOME/.oh-my-git/prompt.sh
 fi
