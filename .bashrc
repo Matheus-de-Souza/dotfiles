@@ -8,6 +8,12 @@
 #===================#
 #=== Git Aliases ===#
 #===================#
+alias bashrc='vim ~/.bashrc'
+alias reload='source ~/.bashrc'
+
+#===================#
+#=== Git Aliases ===#
+#===================#
 
 alias gc='git clone'
 alias ga='git add'
@@ -19,6 +25,9 @@ alias gd='git diff'
 alias gc='git commit -v'
 alias gcm='git commit -v -m'
 alias gca='git commit --amend --no-edit-message'
+
+alias gmv='git mv'
+alias grm='git rm'
 
 alias gb='git branch'
 alias gco='git checkout'
