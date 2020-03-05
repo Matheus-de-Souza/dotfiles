@@ -5,12 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#====================#
-#=== TODO Aliases ===#
-#====================#
-
-# PS1='[\u@\h \W]\$ '
-PS1="\A \[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;6m\][\w]:\[$(tput sgr0)\]\[\033[38;5;15m\] "
+#===================#
+#=== Git Aliases ===#
+#===================#
+alias bashrc='vim ~/.bashrc'
+alias reload='source ~/.bashrc'
 
 #===================#
 #=== Git Aliases ===#
@@ -27,11 +26,14 @@ alias gc='git commit -v'
 alias gcm='git commit -v -m'
 alias gca='git commit --amend --no-edit-message'
 
+alias gmv='git mv'
+alias grm='git rm'
+
 alias gb='git branch'
 alias gco='git checkout'
+alias gl="git shortlog -sn"
 alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias gg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-alias gsl="git shortlog -sn"
+alias glg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
 alias gwc="git whatchanged"
 
 #==========================#
@@ -63,7 +65,8 @@ esac
 alias ls='ls --color=auto'
 alias lsa='ls -la --color=auto' # Use a long listing format
 
-alias .='pwd'
+alias ~='cd ~/'          # Go to home
+alias .='pwd'            # Print current directory
 alias .='ls'             # Go up one directory
 alias ..='cd ..'         # Go up one directory
 alias ...='cd ../..'     # Go up two directories
@@ -88,7 +91,9 @@ alias df='df --human-readable' # Show Filesystem Size
 stty -ixon
 
 # Stop beeping on tabs
-setterm -bfreq 0
+if [ command -v setterm >/dev/null 2>&1 ]; then
+  setterm -bfreq 0
+fi
 
 #===============#
 #=== Helpers ===#
@@ -101,5 +106,65 @@ if test -e $NVM_INIT; then
     source $NVM_INIT
 fi
 
-# Set up Oh-my-git
-source /home/matheus/.oh-my-git/prompt.sh
+#===================#
+#=== PS1 Hacking ===#
+#===================#
+
+# get current branch in git repo
+function parse_git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		STAT=`parse_git_dirty`
+		echo "[${BRANCH}${STAT}]"
+	else
+		echo ""
+	fi
+}
+
+# get current status of git repo
+function parse_git_dirty {
+	status=`git status 2>&1 | tee`
+	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
+	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
+	ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
+	newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+	renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
+	deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+	bits=''
+	if [ "${renamed}" == "0" ]; then
+		bits=">${bits}"
+	fi
+	if [ "${ahead}" == "0" ]; then
+		bits="*${bits}"
+	fi
+	if [ "${newfile}" == "0" ]; then
+		bits="+${bits}"
+	fi
+	if [ "${untracked}" == "0" ]; then
+		bits="?${bits}"
+	fi
+	if [ "${deleted}" == "0" ]; then
+		bits="x${bits}"
+	fi
+	if [ "${dirty}" == "0" ]; then
+		bits="!${bits}"
+	fi
+	if [ ! "${bits}" == "" ]; then
+		echo " ${bits}"
+	else
+		echo ""
+	fi
+}
+
+#export PS1="\`parse_git_branch\` "
+
+#if [ command -v tput >/dev/null 2>&1 ]; then
+  PS1="\A \[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;6m\][\w]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\$ "
+#else
+  #PS1='\A \u@\h [\w]\n\$ '
+#fi
+
+if [ "$(hostname)" == "arch" ]; then
+  source $HOME/.oh-my-git/prompt.sh
+fi
