@@ -8,6 +8,7 @@ dmenu
 docker
 docker-compose
 efibootmgr
+elfutils
 emacs
 fakeroot
 firefox
@@ -23,7 +24,6 @@ i3-gaps
 i3blocks
 i3lock
 i3status
-imwheel
 inkscape
 libgusb
 libtool
@@ -44,7 +44,10 @@ sudo
 telegram-desktop
 texinfo
 thunar
+unzip
 vim
+virtualbox-guest-iso
+virtualbox-guest-utils
 wget
 which
 xclip
