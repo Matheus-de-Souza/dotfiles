@@ -80,7 +80,7 @@ alias grep='grep --color=auto'
 #=== System Maintenance Aliases ===#
 #==================================#
 
-alias pacman='pacman --color=auto'
+alias pacman='sudo pacman --color=auto'
 alias df='df --human-readable' # Show Filesystem Size
 
 #================================#
