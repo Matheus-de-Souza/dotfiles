@@ -40,6 +40,8 @@ values."
      html
      yaml
      markdown
+
+     ;;(keyboard-layout :variables kl-layout 'colemak)))
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or

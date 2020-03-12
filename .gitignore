@@ -64,3 +64,5 @@
 /.imwheelrc
 /.var/
 /.minttyrc
+.quasar*
+VirtualBox*
