@@ -5,11 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#===================#
-#=== Git Aliases ===#
-#===================#
+#=============================#
+#=== Configuration Aliases ===#
+#=============================#
 alias bashrc='vim ~/.bashrc'
 alias reload='source ~/.bashrc'
+alias i3config='emacs -nw ~/.config/i3/config'
 
 #===================#
 #=== Git Aliases ===#
@@ -80,7 +81,7 @@ alias grep='grep --color=auto'
 #=== System Maintenance Aliases ===#
 #==================================#
 
-alias pacman='pacman --color=auto'
+alias pacman='sudo pacman --color=auto'
 alias df='df --human-readable' # Show Filesystem Size
 
 #================================#
@@ -98,6 +99,7 @@ fi
 #===============#
 #=== Helpers ===#
 #===============#
+alias mount_onedrive="rclone --vfs-cache-mode writes mount "Matheus OneDrive": ~/Documents/OneDrive"
 alias tb="nc termbin.com 9999" 
 
 # Set up Node Version Manager
@@ -168,3 +170,5 @@ function parse_git_dirty {
 if [ "$(hostname)" == "arch" ]; then
   source $HOME/.oh-my-git/prompt.sh
 fi
+
+source /home/matheus/.oh-my-git/prompt.sh

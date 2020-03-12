@@ -1,4 +1,3 @@
 nvm
 spotify
 wps-office
-yay
