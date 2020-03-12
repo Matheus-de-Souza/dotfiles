@@ -99,7 +99,7 @@ fi
 #===============#
 #=== Helpers ===#
 #===============#
-alias mount_onedrive="rclone --vfs-cache-mode writes mount "Matheus OneDrive": ~/Documents/OneDrive"
+alias mount_onedrive="rclone --vfs-cache-mode writes mount 'Matheus OneDrive': ~/Documents/OneDrive"
 alias tb="nc termbin.com 9999" 
 
 # Set up Node Version Manager
