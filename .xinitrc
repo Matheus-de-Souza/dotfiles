@@ -30,7 +30,8 @@ setxkbmap -model pc104 -layout br
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-xrandr --output Virtual-1 --mode 1360x768 &
+xrandr --output Virtual-1 --auto &
+xrandr --output HDMI1 --auto --right-of eDP1 &
 
 i3
 

@@ -24,7 +24,6 @@ i3-gaps
 i3blocks
 i3lock
 i3status
-inkscape
 libgusb
 libtool
 linux
@@ -32,7 +31,6 @@ linux-firmware
 linux-headers
 m4
 make
-netctl
 openssh
 pacman
 patch
@@ -41,17 +39,13 @@ pkgconf
 pulseaudio-alsa
 slim
 sudo
-telegram-desktop
 texinfo
 thunar
 unzip
 vim
-virtualbox-guest-iso
-virtualbox-guest-utils
 wget
 which
 xclip
-xf86-video-vesa
 xfce4-terminal
 xorg-bdftopcf
 xorg-docs

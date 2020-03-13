@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+#set $mod Lock
+set $mod mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -36,6 +37,16 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -188,6 +199,6 @@ bar {
 exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
 exec --no-startup-id i3-msg 'workspace 3; exec emacs; sleep 2;'
 exec --no-startup-id i3-msg 'workspace 9; exec pavucontrol; sleep 2;'
-# exec --no-startup-id i3-msg 'workspace 10; exec spotify; sleep 2; workspace 1'
+exec --no-startup-id i3-msg 'workspace 0; exec spotify; sleep 10; workspace 1'
 
 bindsym $mod+p exec flameshot gui
