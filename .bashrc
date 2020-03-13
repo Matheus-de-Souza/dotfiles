@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 #===================#
-#=== Git Aliases ===#
+#=== Config Aliases ===#
 #===================#
 alias bashrc='vim ~/.bashrc'
 alias reload='source ~/.bashrc'

@@ -66,3 +66,4 @@
 /.minttyrc
 .quasar*
 VirtualBox*
+/.mysql/
