@@ -196,9 +196,10 @@ bar {
         status_command i3status
 }
 
-exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
-exec --no-startup-id i3-msg 'workspace 3; exec emacs; sleep 2;'
-exec --no-startup-id i3-msg 'workspace 9; exec pavucontrol; sleep 2;'
-exec --no-startup-id i3-msg 'workspace 0; exec spotify; sleep 10; workspace 1'
+#exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
+#exec --no-startup-id i3-msg 'workspace 3; exec emacsclient -nc; sleep 2;'
+#exec --no-startup-id i3-msg 'workspace 5; exec spotify; sleep 10; workspace 1;'
+exec --no-startup-id i3-msg 'workspace 10; exec pavucontrol;'
+exec --no-startup-id i3-msg 'workspace 1;'
 
 bindsym $mod+p exec flameshot gui
