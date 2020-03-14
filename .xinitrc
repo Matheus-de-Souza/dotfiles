@@ -33,5 +33,7 @@ setxkbmap -model pc104 -layout br
 xrandr --output Virtual-1 --auto &
 xrandr --output HDMI1 --auto --right-of eDP1 &
 
+safeeyes &
+
 i3
 
