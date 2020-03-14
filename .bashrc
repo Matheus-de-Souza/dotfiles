@@ -10,7 +10,9 @@
 #=============================#
 alias bashrc='vim ~/.bashrc'
 alias reload='source ~/.bashrc'
-alias i3config='emacs -nw ~/.config/i3/config'
+alias i3config='emacsclient -nc ~/.config/i3/config'
+alias i3exit='i3-msg exit'
+alias ec="emacsclient -nc"
 
 #===================#
 #=== Git Aliases ===#
@@ -19,7 +21,6 @@ alias i3config='emacs -nw ~/.config/i3/config'
 alias gc='git clone'
 alias ga='git add'
 alias gs='git status'
-alias gsu='git submodule update --init --recursive'
 alias gF='git pull'
 alias gp='git push'
 alias gd='git diff'
@@ -33,8 +34,7 @@ alias grm='git rm'
 alias gb='git branch'
 alias gco='git checkout'
 alias gl="git shortlog -sn"
-alias gll='git log --graph --pretty=oneline --abbrev-commit'
-alias glg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias glg="git log --graph --pretty=format:'%C(blue)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
 alias gwc="git whatchanged"
 
 #==========================#
@@ -159,16 +159,12 @@ function parse_git_dirty {
 	fi
 }
 
-#export PS1="\`parse_git_branch\` "
-
-#if [ command -v tput >/dev/null 2>&1 ]; then
+if [ tput >/dev/null 2>&1 ]; then
   PS1="\A \[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;6m\][\w]\[$(tput sgr0)\]\[\033[38;5;15m\]\n\$ "
-#else
-  #PS1='\A \u@\h [\w]\n\$ '
-#fi
-
-if [ "$(hostname)" == "arch" ]; then
-  source $HOME/.oh-my-git/prompt.sh
+else
+  PS1='\`parse_git_branch\` \A \u@\h [\w]\n\$ '
 fi
 
-source /home/matheus/.oh-my-git/prompt.sh
+if [ $DISPLAY ]; then
+  source $HOME/.oh-my-git/prompt.sh
+fi
