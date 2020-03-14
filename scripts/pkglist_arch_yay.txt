@@ -1,3 +1,5 @@
 nvm
+safeeyes
 spotify
 wps-office
+yay
