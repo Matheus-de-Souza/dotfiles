@@ -83,6 +83,8 @@ alias grep='grep --color=auto'
 
 alias pacman='sudo pacman --color=auto'
 alias df='df --human-readable' # Show Filesystem Size
+alias powersaving_on="xset +dpms"
+alias powersaving_off="xset -dpms"
 
 #================================#
 #=== Stop Terminal Annoyances ===#
