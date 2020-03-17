@@ -81,7 +81,11 @@ alias grep='grep --color=auto'
 #=== System Maintenance Aliases ===#
 #==================================#
 
-alias pacman='sudo pacman --color=auto'
+
+if test -e /bin/sudo; then
+    alias pacman='sudo pacman --color=auto'
+fi
+
 alias df='df --human-readable' # Show Filesystem Size
 alias powersaving_on="xset +dpms"
 alias powersaving_off="xset -dpms"
@@ -167,6 +171,32 @@ else
   PS1='\`parse_git_branch\` \A \u@\h [\w]\n\$ '
 fi
 
-if [ $DISPLAY ]; then
+if [ $DISPLAY ] && [ "$OSTYPE" != "msys" ];  then
   source $HOME/.oh-my-git/prompt.sh
 fi
+
+# if [[ "$OSTYPE" == "linux-gnu" ]]; then
+#    # ...
+# elif [[ "$OSTYPE" == "darwin"* ]]; then
+#    # Mac OSX
+# elif [[ "$OSTYPE" == "cygwin" ]]; then
+#    # POSIX compatibility layer and Linux environment emulation for Windows
+# elif [[ "$OSTYPE" == "msys" ]]; then
+#    # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+# elif [[ "$OSTYPE" == "win32" ]]; then
+#    # I'm not sure this can happen.
+# elif [[ "$OSTYPE" == "freebsd"* ]]; then
+#    # ...
+# else
+#    # Unknown.
+# fi
+
+# unameOut="$(uname -s)"
+# case "${unameOut}" in
+#     Linux*)     machine=Linux;;
+#     Darwin*)    machine=Mac;;
+#     CYGWIN*)    machine=Cygwin;;
+#     MINGW*)     machine=MinGw;;
+#     *)          machine="UNKNOWN:${unameOut}"
+# esac
+# echo ${machine}
