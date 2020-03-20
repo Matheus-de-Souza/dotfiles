@@ -87,8 +87,8 @@ if test -e /bin/sudo; then
 fi
 
 alias df='df --human-readable' # Show Filesystem Size
-alias powersaving_on="xset +dpms"
-alias powersaving_off="xset -dpms"
+alias powersaving_on="xset +dpms && xset s on"
+alias powersaving_off="xset -dpms && xset s off"
 
 #================================#
 #=== Stop Terminal Annoyances ===#

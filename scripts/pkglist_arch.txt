@@ -42,6 +42,7 @@ linux
 linux-firmware
 m4
 make
+min
 network-manager-applet
 networkmanager
 nvidia
@@ -60,6 +61,7 @@ sudo
 telegram-desktop
 texinfo
 thunar
+tumbler
 vim
 virtualbox
 wget

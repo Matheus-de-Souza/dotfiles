@@ -1,3 +1,4 @@
+informant
 nvm
 safeeyes
 spotify
