@@ -1,5 +1,7 @@
 informant
 nvm
+optimus-manager
+optimus-manager-qt
 safeeyes
 spotify
 wps-office
