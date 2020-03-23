@@ -13,6 +13,9 @@ alias reload='source ~/.bashrc'
 alias i3config='emacsclient -nc ~/.config/i3/config'
 alias i3exit='i3-msg exit'
 alias ec="emacsclient -nc"
+alias xorgconf="sudo vim /etc/X11/xorg.conf"
+alias use_nvidia="optimus-manager --set-startup nvidia"
+alias use_intel="optimus-manager --set-startup intel"
 
 #===================#
 #=== Git Aliases ===#
@@ -84,11 +87,12 @@ alias grep='grep --color=auto'
 
 if test -e /bin/sudo; then
     alias pacman='sudo pacman --color=auto'
+    alias yay='yay --color=auto --aur'
 fi
 
 alias df='df --human-readable' # Show Filesystem Size
-alias powersaving_on="xset +dpms"
-alias powersaving_off="xset -dpms"
+alias powersaving_on="xset +dpms && xset s on"
+alias powersaving_off="xset -dpms && xset s off"
 
 #================================#
 #=== Stop Terminal Annoyances ===#
