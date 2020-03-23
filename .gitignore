@@ -1,76 +1,72 @@
+# Bash Files 
 /.bash_history
 /.bash_logout
 /.bash_profile
 
-/Desktop
-/Documents
-/Downloads
+# Xorg Files
+/.Xauthority
 
-/.emacs.d
-/.spacemacs
-/.viminfo
+# Common Desktop Directories
+/Desktop/
+/Documents/
+/Downloads/
+/Music/
+/Pictures/
+/Videos/
 
-/.config
-/.mozilla
-/.npm
-/.nvm
-
-/.X*
-/.cache
-/.local
-/.pki
-
-/.ssh
-
-# Arquivos Windows
+# Windows...
 /3D\ Objects/
 /AppData/
 /Contacts/
 /Cookies@
-/Desktop/
-/Documents/
-/Downloads/
 /Favorites/
 /IntelGraphicsProfiles/
 /Links/
 /MicrosoftEdgeBackups/
-/Music/
 /NTUSER.*
 /ntuser.*
 /OneDrive/
-/Pictures/
 /Recent@
 /Saved Games/
 /Searches/
-/Videos/
 
+# Program Configs I don't need to include
 /.AndroidStudio*
-/.VirtualBox/
 /.android/
+/.cache
 /.cargo/
+/.config
+/.docker/
+/.emacs.d
+/.fonts/oh-my-git/
 /.git-for-windows-updater
 /.gitconfig
-/.ionic/
-/.node-gyp/
-/.rustup/
-/.v8flags.*
-/.vscode/
-
-/.docker/
-/.wget-hsts
 /.gnupg/
-/.fonts/oh-my-git/
-/.oh-my-git/
-/.imwheelrc
-/.var/
+/.ionic/
+/.local
 /.minttyrc
-.quasar*
-VirtualBox*
+/.mozilla
 /.mysql/
+/.node-gyp/
+/.npm
 /.nv/
 /.nvidia-settings-rc
+/.nvm
+/.oh-my-git/
+/.openlp/
+/.pki
 /.pulse-cookie
+/.quasar*
+/.rustup/
+/.spacemacs
+/.ssh
 /.steam/
 /.steampath
 /.steampid
-/.openlp/
+/.v8flags.*
+/.var/
+/.viminfo
+/.VirtualBox/
+/.vscode/
+/.wget-hsts
+
