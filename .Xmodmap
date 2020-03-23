@@ -6,6 +6,16 @@
 !add mod3 = Hyper_L
 !add mod4 = Super_R
 
-clear Lock 
-keycode 66 = Super_L NoSymbol Super_L
-add mod4 = Super_L
+!clear menu 
+!keycode 135 = Super_L NoSymbol Super_L
+!keycode 146  = Super_L NoSymbol Super_L
+!add mod4 = Super_L
+
+!clear lock
+!keycode 66 = Super_L NoSymbol Super_L
+!add mod4 = Super_L
+
+clear mod3
+clear mod4
+add mod3 = Hyper_L
+add mod4 = Super_L Super_R

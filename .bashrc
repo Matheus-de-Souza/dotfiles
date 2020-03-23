@@ -84,7 +84,6 @@ alias grep='grep --color=auto'
 #=== System Maintenance Aliases ===#
 #==================================#
 
-
 if test -e /bin/sudo; then
     alias pacman='sudo pacman --color=auto'
     alias yay='yay --color=auto --aur'
