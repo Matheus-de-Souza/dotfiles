@@ -30,7 +30,6 @@ setxkbmap -model pc104 -layout br
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-
 spare_modifier="Hyper_L" 
 xmodmap -e "keycode 65 = $spare_modifier"   
 xmodmap -e "add Hyper_L = $spare_modifier"
@@ -43,6 +42,7 @@ xcape -e "$spare_modifier=space"
 xrandr --auto
 
 safeeyes &
+flameshot &
 
 i3
 
