@@ -139,8 +139,6 @@ OutputDebug, [loading] desktops: %DesktopCount% current: %CurrentDesktop%
 ;AppsKey & 8::switchDesktopByNumber(8)
 ;AppsKey & 9::switchDesktopByNumber(9)
 
-Space::SendInput {Space}; Send space when only space is pressed
-
 Space & 1::switchDesktopByNumber(1)
 Space & 2::switchDesktopByNumber(2)
 Space & 3::switchDesktopByNumber(3)
@@ -150,6 +148,8 @@ Space & 6::switchDesktopByNumber(6)
 Space & 7::switchDesktopByNumber(7)
 Space & 8::switchDesktopByNumber(8)
 Space & 9::switchDesktopByNumber(9)
+
+Space::SendInput {Space} ; Send space when only space is pressed
 
 ;CapsLock & n::switchDesktopByNumber(CurrentDesktop + 1)
 ;CapsLock & p::switchDesktopByNumber(CurrentDesktop - 1)
