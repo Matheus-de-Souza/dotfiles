@@ -36,7 +36,6 @@ values."
      php
      javascript
      auto-completion
-     git
      syntax-checking
      html
      yaml
