@@ -47,6 +47,7 @@
 /.minttyrc
 /.mozilla
 /.mysql/
+/.node_repl_history
 /.node-gyp/
 /.npm
 /.nv/
@@ -69,4 +70,5 @@
 /.VirtualBox/
 /.vscode/
 /.wget-hsts
+
 
