@@ -33,6 +33,7 @@
 # Program Configs I don't need to include
 /.AndroidStudio*
 /.android/
+/.audacity*
 /.cache
 /.cargo/
 /.config
@@ -68,6 +69,7 @@
 /.steampid
 /.v8flags.*
 /.var/
+/.vim
 /.viminfo
 /.VirtualBox/
 /.vscode/
