@@ -10,8 +10,6 @@
 #=============================#
 alias bashrc='vim ~/.bashrc'
 alias reload='source ~/.bashrc'
-alias i3config='emacsclient -nc ~/.config/i3/config'
-alias i3exit='i3-msg exit'
 alias ec="emacsclient -nc"
 alias xorgconf="sudo vim /etc/X11/xorg.conf"
 alias use_nvidia="optimus-manager --set-startup nvidia"
