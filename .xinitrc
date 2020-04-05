@@ -41,8 +41,15 @@ xcape -e "$spare_modifier=space"
 
 xrandr --auto
 
-safeeyes &
-flameshot &
+emacs --daemon &
+
+safeeyes & # Caring for my eyes health
+flameshot & # Prinscreen software 
+pasystray & # PulseAudio system tray
+
+# Fix mic problem
+# https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#No_microphone_input_on_Acer_Aspire_One_and_Lenovo_Ideapad-310-15ISK
+pactl set-source-volume 1 -100% -0
 
 i3
 
