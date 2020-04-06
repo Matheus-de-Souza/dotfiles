@@ -153,7 +153,7 @@ bindsym $mod4+c exec emacsclient -nc .config/i3/config
 bindsym $mod4+Shift+c reload
 # exit i3 (logs you out of your X session)
 bindsym $mod4+e exit
-bindsym $mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you want to poweroff?' -B 'Yes, poweroff' 'i3-msg exit'"
+bindsym $mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you want to poweroff?' -B 'Yes, poweroff' 'poweroff'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
