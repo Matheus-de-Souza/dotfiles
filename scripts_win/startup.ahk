@@ -7,4 +7,5 @@ Run, ../Documents/Apps/emacs/bin/emacs.exe --daemon
 Sleep, 20000
 Run, ../Documents/Apps/emacs/bin/emacsclient.exe -nc
 
+#Include swap_keys.ahk 
 #Include windows-i3.ahk
