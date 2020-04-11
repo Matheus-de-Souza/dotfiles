@@ -75,4 +75,7 @@
 /.vscode/
 /.wget-hsts
 
+# Unknown files...
+.uuid
+
 
