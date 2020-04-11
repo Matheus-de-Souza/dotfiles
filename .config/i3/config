@@ -122,13 +122,21 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
+set $ws1 "1: Main"
+set $ws2 "2: Code"
+set $ws3 "3: Terminals"
+set $ws4 "4: 4"
+set $ws5 "5: Chat"
+set $ws6 "6: todo"
+set $ws7 "7: Music"
+
+workspace $ws1 output primary
+workspace $ws7 output HDMI1
+
+assign [class="(?i)Spotify"] workspace number "7: Music"
+assign [class="(?i)Spotify"] "7: Music"
+assign [class="(?i)Spotify"] workspace number $ws7
+assign [class="(?i)Spotify"] $ws7
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -150,7 +158,7 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 
 # reload the configuration file
 bindsym $mod4+c exec emacsclient -nc .config/i3/config
-bindsym $mod4+Shift+c reload
+bindsym $mod4+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym $mod4+e exit
 bindsym $mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the poweroff shortcut. Do you want to poweroff?' -B 'Yes, poweroff' 'poweroff'"
@@ -185,7 +193,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command i3status
+  output primary
+  status_command i3status --config ~/.config/i3/.i3status.conf
+  separator_symbol " | "
+  workspace_buttons yes
+}
+
+bar {
+  output HDMI1
+  status_command i3status --config ~/.config/i3/.i3status.HDMI1.conf
+  binding_mode_indicator no
+  tray_output none
 }
 
 #exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
