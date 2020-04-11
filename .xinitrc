@@ -36,12 +36,9 @@ xmodmap -e "add Hyper_L = $spare_modifier"
 xmodmap -e "keycode any = space"  
 xcape -e "$spare_modifier=space"
 
-#xrandr --output Virtual-1 --auto &
-#xrandr --output HDMI1 --auto --right-of eDP1 &
+xrandr --output HDMI1 --right-of eDP1 --auto & # Set monitors config
 
-xrandr --auto
-
-emacs --daemon &
+emacs --daemon & # Emacs Daemon
 
 safeeyes & # Caring for my eyes health
 flameshot & # Prinscreen software 
@@ -50,6 +47,9 @@ pasystray & # PulseAudio system tray
 # Fix mic problem
 # https://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#No_microphone_input_on_Acer_Aspire_One_and_Lenovo_Ideapad-310-15ISK
 pactl set-source-volume 1 -100% -0
+
+# Use Natural Scrolling on my touchpad
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 
 i3
 
