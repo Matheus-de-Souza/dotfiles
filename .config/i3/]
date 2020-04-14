@@ -77,8 +77,7 @@ tztime berlin {
 }
 
 volume master {
-        #format = " %volume"
-        format = "♪ %volume"
+        format = " %volume"
         format_muted = " %volume"
         device = "default"
         mixer = "Master"
