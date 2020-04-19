@@ -125,18 +125,17 @@ bindsym $mod+a focus parent
 set $ws1 "1: Main"
 set $ws2 "2: Code"
 set $ws3 "3: Terminals"
-set $ws4 "4: 4"
+set $ws4 "4: Todo"
 set $ws5 "5: Chat"
-set $ws6 "6: Todo"
-set $ws7 "7: Music"
+set $ws6 "6: Music"
 
 workspace $ws1 output primary
-workspace $ws7 output HDMI1
+# workspace $ws7 output HDMI1
 
-assign [class="(?i)Spotify"] workspace number "7: Music"
-assign [class="(?i)Spotify"] "7: Music"
-assign [class="(?i)Spotify"] workspace number $ws7
-assign [class="(?i)Spotify"] $ws7
+# assign [class="(?i)Spotify"] workspace number "7: Music"
+# assign [class="(?i)Spotify"] "7: Music"
+# assign [class="(?i)Spotify"] workspace number $ws7
+# assign [class="(?i)Spotify"] $ws7
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -145,7 +144,6 @@ bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -154,7 +152,6 @@ bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
 
 # reload the configuration file
 bindsym $mod4+c exec emacsclient -nc .config/i3/config
