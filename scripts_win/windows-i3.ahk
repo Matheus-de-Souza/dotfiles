@@ -149,6 +149,12 @@ Space & 7::switchDesktopByNumber(7)
 Space & 8::switchDesktopByNumber(8)
 Space & 9::switchDesktopByNumber(9)
 
+;; Close Current Window
+Space & Q::
+If GetKeyState("Shift","p")
+  Send !{F4}
+Return
+
 Space::SendInput {Space} ; Send space when only space is pressed
 
 ;CapsLock & n::switchDesktopByNumber(CurrentDesktop + 1)
