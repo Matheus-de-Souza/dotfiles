@@ -120,6 +120,21 @@ fi
 #=== PS1 Hacking ===#
 #===================#
 
+function check_network_hosts() {
+    echo "Check who are in the same net you are in..."
+    networks=`ip addr | grep inet[^6] | sed -E 's/[ ]+inet ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).*/\1/g'`
+    cancel='cancel'
+    PS3="Please enter the ip for checkin: "
+    select answer in $networks $cancel ; do
+	      if [ $answer != $cancel ];
+           then
+            eval "sudo nmap -sVP $answer/24 | grep -P '(MAC Address)|(Nmap scan report)'"
+        fi
+        break 2
+    done
+    echo "Goodbye!"
+}
+
 # get current branch in git repo
 function parse_git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
