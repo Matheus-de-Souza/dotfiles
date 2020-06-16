@@ -196,12 +196,12 @@ bar {
   workspace_buttons yes
 }
 
-bar {
-  output HDMI1
-  status_command i3status --config ~/.config/i3/.i3status.HDMI1.conf
-  binding_mode_indicator no
-  tray_output none
-}
+#bar {
+#  output HDMI1
+#  status_command i3status --config ~/.config/i3/.i3status.HDMI1.conf
+#  binding_mode_indicator no
+#  tray_output none
+#}
 
 #exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
 #exec --no-startup-id i3-msg 'workspace 3; exec emacsclient -nc; sleep 2;'
