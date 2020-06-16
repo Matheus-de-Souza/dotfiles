@@ -111,7 +111,7 @@ bindsym $mod4+Tab focus next
 bindsym $mod4+Shift+Tab focus prev
 
 # toggle tiling / floating
-bindsym $mod+Shift floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
