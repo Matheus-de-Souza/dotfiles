@@ -128,7 +128,8 @@ function check_network_hosts() {
     select answer in $networks $cancel ; do
 	      if [ $answer != $cancel ];
            then
-            eval "sudo nmap -sVP $answer/24 | grep -P '(MAC Address)|(Nmap scan report)'"
+            eval "sudo nmap -RP $answer/24"
+            #eval "sudo nmap -sVP $answer/24 | grep -P '(MAC Address)|(Nmap scan report)'"
         fi
         break 2
     done
