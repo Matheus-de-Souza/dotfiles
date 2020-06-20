@@ -43,7 +43,6 @@ gpick
 grep
 groff
 grub
-grub-customizer
 gst-plugins-good
 gtk-engines
 guitarix
@@ -99,12 +98,10 @@ steam
 sudo
 telegram-desktop
 texinfo
-tk
 tumbler
 udiskie
 udisks2
 vim
-virtualbox
 vlc
 wget
 which
