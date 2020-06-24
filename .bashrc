@@ -14,6 +14,7 @@ alias ec="emacsclient -nc"
 alias xorgconf="sudo vim /etc/X11/xorg.conf"
 alias use_nvidia="optimus-manager --set-startup nvidia"
 alias use_intel="optimus-manager --set-startup intel"
+alias goi3="startx ~/.xinitrc i3"
 
 #===================#
 #=== Git Aliases ===#
@@ -128,7 +129,8 @@ function check_network_hosts() {
     select answer in $networks $cancel ; do
 	      if [ $answer != $cancel ];
            then
-            eval "sudo nmap -sVP $answer/24 | grep -P '(MAC Address)|(Nmap scan report)'"
+            eval "sudo nmap -RP $answer/24"
+            #eval "sudo nmap -sVP $answer/24 | grep -P '(MAC Address)|(Nmap scan report)'"
         fi
         break 2
     done
@@ -180,6 +182,10 @@ function parse_git_dirty {
 	else
 		echo ""
 	fi
+}
+
+function rclone_sync {
+    rclone sync -P /media/hdd/OneDrive/Matheus 'Matheus OneDrive':/Matheus
 }
 
 if [ tput >/dev/null 2>&1 ]; then

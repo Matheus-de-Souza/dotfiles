@@ -1,8 +1,12 @@
-informant
+google-chrome
 nvm
 optimus-manager
-optimus-manager-qt
-safeeyes
+scrcpy
 spotify
+tagspaces-bin
+teams
+vivaldi
+vivaldi-ffmpeg-codecs
 wps-office
 yay
+zoom

@@ -38,6 +38,7 @@
 /.cargo/
 /.config
 /.docker/
+/.dvdcss/
 /.emacs.d
 /.emulator_console_auth_token
 /.fonts/oh-my-git/
@@ -49,9 +50,10 @@
 /.local
 /.minttyrc
 /.mozilla
+/.mysql_history
 /.mysql/
-/.node-gyp/
 /.node_repl_history
+/.node-gyp/
 /.npm
 /.nv/
 /.nvidia-settings-rc
@@ -73,10 +75,12 @@
 /.vim
 /.viminfo
 /.VirtualBox/
+/.vscode-oss/
 /.vscode/
 /.wget-hsts
+/.workrave/
+/.zoom/
 
 # Unknown files...
 .uuid
-
 
