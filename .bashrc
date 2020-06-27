@@ -87,6 +87,7 @@ if test -e /bin/sudo; then
     alias yay='yay --color=auto --aur'
 fi
 
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 alias df='df --human-readable' # Show Filesystem Size
 alias powersaving_on="xset +dpms && xset s on"
 alias powersaving_off="xset -dpms && xset s off"
