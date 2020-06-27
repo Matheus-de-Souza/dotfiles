@@ -15,11 +15,23 @@ set $mod4 mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 11
+#font pango:monospace 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 10
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #4c7899 #ffffff #2e9ef4   #4c7899
+client.focused_inactive #333333 #3f6480 #ffffff #484e50   #3f6480
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+for_window [class=".*"] border pixel 0
+#gaps outer 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -30,10 +42,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -c 000000 --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
+
+set $refresh_i3status killall -SIGUSR1 i3status
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -61,16 +74,12 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec rofi -show drun
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -79,10 +88,6 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -114,19 +119,20 @@ bindsym $mod4+Shift+Tab focus prev
 bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Main"
-set $ws2 "2: Code"
-set $ws3 "3: Terminals"
-set $ws4 "4: Todo"
-set $ws5 "5: Chat"
-set $ws6 "6: Music"
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5: "
+set $ws6 "6: "
+set $ws7 "7: "
 
 workspace $ws1 output primary
 # workspace $ws7 output HDMI1
@@ -153,7 +159,7 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 bindsym $mod+Shift+6 move container to workspace number $ws6
 
 # reload the configuration file
-bindsym $mod4+c exec emacsclient -nc .config/i3/config
+bindsym $mod4+c exec "emacs .config/i3/config"
 bindsym $mod4+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym $mod4+e exit
@@ -193,6 +199,10 @@ bar {
   status_command i3status --config ~/.config/i3/.i3status.conf
   separator_symbol " | "
   workspace_buttons yes
+  colors {
+      background #222222
+      statusline #dddddd
+  }
 }
 
 #bar {
@@ -207,7 +217,7 @@ bar {
 #exec --no-startup-id i3-msg 'workspace 5; exec spotify; sleep 10; workspace 1;'
 #exec --no-startup-id i3-msg 'workspace 1;'
 
-bindsym $mod+p exec flameshot gui
+bindsym Print exec flameshot gui
 
 # Floating Windows Handling
 for_window [window_role="^conversation$"] floating enable
