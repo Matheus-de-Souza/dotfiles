@@ -71,6 +71,7 @@
 /.steampid
 /.v8flags.*
 /.var/
+/.vivaldi_reporting_data
 /.vim
 /.viminfo
 /.VirtualBox/
