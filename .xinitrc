@@ -48,20 +48,20 @@ then
 	xmodmap -e "keycode any = space"  
 	xcape -e "$spare_modifier=space"
 
-	#xrandr --output HDMI1 --right-of eDP1 --auto & # Set monitors config
-	xrandr --auto
-
-	# emacs --daemon & # Emacs Daemon
-
-  workrave & # Caring for my body and eyes health
-	flameshot & # Prinscreen software 
-	pasystray & # PulseAudio system tray
-
 	# Better beep sound (volume, hertz frequency, duration in miliseconds)
 	xset b 10 30 200
 
 	# Use Natural Scrolling on my touchpad
 	xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+
+	#xrandr --output HDMI1 --right-of eDP1 --auto & # Set monitors config
+	xrandr --auto
+
+	# emacs --daemon & # Emacs Daemon
+
+	redshift-gtk & # Caring for my eyes
+	flameshot & # Prinscreen software 
+	workrave & # Caring for my body and eyes health
 
 	i3
 fi
