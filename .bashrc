@@ -96,6 +96,8 @@ alias powersaving_off="xset -dpms && xset s off"
 #=== Stop Terminal Annoyances ===#
 #================================#
 
+shopt -s cdspell # Spelling Correction on bash
+
 # Stop Ctrl+S freezing on terminal
 stty -ixon
 
