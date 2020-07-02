@@ -9,8 +9,13 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-#set $mod Lock
-set $mod mod3
+# When use alt
+#set $mod mod1
+
+# When use space
+set $mod mod3 
+
+# Super Key (auxiliary)
 set $mod4 mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -30,7 +35,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 1
 #gaps outer 10
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
