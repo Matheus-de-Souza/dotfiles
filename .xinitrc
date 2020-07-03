@@ -32,7 +32,7 @@ if [[ $session == "plasma" ]]; then
 elif [[ $session == "i3" ]]; then
 	echo 'i3 is running!'
 
-	setxkbmap -model pc104 -layout br 
+	setxkbmap -model pc104 -layout br
 
 	# Fix mic problem
 	# http://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#No_microphone_input_on_Acer_Aspire_One_and_Lenovo_Ideapad-310-15ISK
@@ -42,10 +42,10 @@ elif [[ $session == "i3" ]]; then
 
 	    [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
-	    spare_modifier="Hyper_L" 
-	    xmodmap -e "keycode 65 = $spare_modifier"   
+	    spare_modifier="Hyper_L"
+	    xmodmap -e "keycode 65 = $spare_modifier"
 	    xmodmap -e "add Hyper_L = $spare_modifier"
-	    xmodmap -e "keycode any = space"  
+	    xmodmap -e "keycode any = space"
 	    xcape -e "$spare_modifier=space"
 	fi
 
