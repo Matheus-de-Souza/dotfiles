@@ -38,8 +38,8 @@ client.background       #ffffff
 for_window [class=".*"] border pixel 1
 #gaps outer 10
 
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+#exec_always --no-startup-id feh --bg-fill ~/wallpapers/wallhaven-492ygw_1600x900.png
+exec_always --no-startup-id feh --bg-fill ~/wallpapers/wallhaven-n6ldg6_1600x900.png
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -71,7 +71,7 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec konsole
 
 # kill focused window
 bindsym $mod+Shift+q kill
