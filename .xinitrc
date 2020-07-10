@@ -17,36 +17,37 @@ if [ -f $userresources ]; then
     xrdb -merge $userresources
 fi
 
-setxkbmap -model pc104 -layout br 
-
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
-
-# Fix mic problem
-# http://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#No_microphone_input_on_Acer_Aspire_One_and_Lenovo_Ideapad-310-15ISK
-pactl set-source-volume 1 -100% -0
-
 # Here gnome is kept as default
 
 session=${1:-gnome}
-
-#case $session in
-#	i3|i3wm           ) exec i3;;
-#	#kde               ) exec startplasma-x11;;
-#	#xfce|xfce4        ) exec startxfce4;;
-#	# No known session, try to run it as command
-#	*                 ) echo 'running gnome';;
-#esac
+space_i3=$2
 
 # Run those commands only with a i3 session
-if [ "$session" == "i3" ];
-then
+if [[ $session == "plasma" ]]; then
+	redshift-gtk & # Caring for my eyes
+	flameshot & # Prinscreen software
+	workrave & # Caring for my body and eyes health
+
+	exec startplasma-x11
+elif [[ $session == "i3" ]]; then
 	echo 'i3 is running!'
 
-	spare_modifier="Hyper_L" 
-	xmodmap -e "keycode 65 = $spare_modifier"   
-	xmodmap -e "add Hyper_L = $spare_modifier"
-	xmodmap -e "keycode any = space"  
-	xcape -e "$spare_modifier=space"
+	setxkbmap -model pc104 -layout br
+
+	# Fix mic problem
+	# http://wiki.archlinux.org/index.php/PulseAudio/Troubleshooting#No_microphone_input_on_Acer_Aspire_One_and_Lenovo_Ideapad-310-15ISK
+	pactl set-source-volume 1 -100% -0
+
+	if [[ $space_i3 == true ]]; then
+
+	    [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+	    spare_modifier="Hyper_L"
+	    xmodmap -e "keycode 65 = $spare_modifier"
+	    xmodmap -e "add Hyper_L = $spare_modifier"
+	    xmodmap -e "keycode any = space"
+	    xcape -e "$spare_modifier=space"
+	fi
 
 	# Better beep sound (volume, hertz frequency, duration in miliseconds)
 	xset b 10 30 200
@@ -59,9 +60,13 @@ then
 
 	# emacs --daemon & # Emacs Daemon
 
+
+	picom & # Xorg compositor
+	dunst & # Notification manager
 	redshift-gtk & # Caring for my eyes
-	flameshot & # Prinscreen software 
+	flameshot & # Prinscreen software
 	workrave & # Caring for my body and eyes health
 
 	i3
 fi
+

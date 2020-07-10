@@ -14,6 +14,7 @@ alias xorgconf="sudo vim /etc/X11/xorg.conf"
 alias use_nvidia="optimus-manager --set-startup nvidia"
 alias use_intel="optimus-manager --set-startup intel"
 alias goi3="startx ~/.xinitrc i3"
+alias goplasma="startx ~/.xinitrc plasma"
 
 #===================#
 #=== Git Aliases ===#
