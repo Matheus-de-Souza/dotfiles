@@ -120,6 +120,12 @@ if test -e $NVM_INIT; then
     source $NVM_INIT
 fi
 
+# Set up JAVA_HOME
+JAVA_HOME=/usr/lib/jvm/default
+if test -e $JAVA_HOME; then
+    export JAVA_HOME=/usr/lib/jvm/default
+fi
+
 #===================#
 #=== PS1 Hacking ===#
 #===================#
