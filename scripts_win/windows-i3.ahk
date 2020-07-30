@@ -146,8 +146,14 @@ Space & 4::switchDesktopByNumber(4)
 Space & 5::switchDesktopByNumber(5)
 Space & 6::switchDesktopByNumber(6)
 Space & 7::switchDesktopByNumber(7)
-Space & 8::switchDesktopByNumber(8)
-Space & 9::switchDesktopByNumber(9)
+
+F1::switchDesktopByNumber(1)
+F2::switchDesktopByNumber(2)
+F3::switchDesktopByNumber(3)
+F4::switchDesktopByNumber(4)
+F5::switchDesktopByNumber(5)
+F6::switchDesktopByNumber(6)
+F7::switchDesktopByNumber(7)
 
 ;; Close Current Window
 Space & Q::
