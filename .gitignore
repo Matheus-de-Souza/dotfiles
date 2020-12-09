@@ -164,7 +164,6 @@
 /.terraform.d
 /.v8flags.*
 /.var/
-/.vim
 /.viminfo
 /.VirtualBox
 /.vivaldi_reporting_data
@@ -173,9 +172,8 @@
 /.wget-hsts
 /.workrave
 /.zoom
+/.vim/.netrwhist
 /VirtualBox\ VMs
-
-
 
 # Unknown files...
 .uuid
