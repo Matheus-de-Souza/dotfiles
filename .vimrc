@@ -19,6 +19,11 @@ call plug#begin('~/.vim/plugged')
 	" On-demand loading
 	Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 
+  " Fuzzy Finder
+  " On windows it's necessary to install with 'choco install fzf'
+  " https://github.com/junegunn/fzf.vim
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 	" Colorschemes
 	Plug 'phanviet/vim-monokai-pro'
 	
