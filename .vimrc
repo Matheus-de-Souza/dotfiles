@@ -23,7 +23,9 @@ call plug#begin('~/.vim/plugged')
   " Fuzzy Finder
   " On windows it's necessary to install with 'choco install fzf'
   " https://github.com/junegunn/fzf.vim
+  " Remember to install: The Silver Searcher (Ag)
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
 	" Colorschemes
 	Plug 'phanviet/vim-monokai-pro'
