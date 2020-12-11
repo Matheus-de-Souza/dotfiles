@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 
 	" On-demand loading
 	Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+  Plug 'preservim/nerdcommenter'
 
   " Fuzzy Finder
   " On windows it's necessary to install with 'choco install fzf'
