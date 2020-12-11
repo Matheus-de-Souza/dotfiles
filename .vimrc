@@ -101,12 +101,12 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
-inoremap jj <ESC>
+inoremap jk <ESC>
 map Y y$
 
 " Shortcuts
 " Buffers
-map <leader>bb :buffers<CR>
+map <leader>bb :Buffers<CR>
 map <leader>bf :buffer 
 map <leader>bn :bn<CR>
 map <leader>bp :bp<CR>
