@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Installed Language Servers
   " CocInstall coc-tsserver
-  " CocInstall coc-vetur
+  " CocInstall coc-vetur "Need to install: npm i eslint eslint-plugin-vue -D
   " CocInstall coc-eslint
  
   " More expressiveness
@@ -42,9 +42,9 @@ set guifont=Fira\ Code:h10
 " https://github.com/tonsky/FiraCode/issues/462
 set renderoptions=type:directx
 
+set nocompatible
 syntax enable
 filetype plugin indent on
-
 
 " Use Monokai
 "colorscheme monokai
@@ -69,8 +69,7 @@ set autoindent
 
 set autoindent
 
-set visualbell
-
+"set visualbell
 
 set ignorecase
 set smartcase
@@ -87,6 +86,8 @@ set formatoptions=qrn1
 set showmode
 
 " Fix movements
+let mapleader = ","
+
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
@@ -99,17 +100,33 @@ nnoremap j gj
 nnoremap k gk
 
 inoremap jj <ESC>
+map Y y$
 
-let mapleader = ","
+" Shortcuts
+" Buffers
+map <leader>bb :buffers<CR>
+map <leader>bf :buffer 
+map <leader>bn :bn<CR>
+map <leader>bp :bp<CR>
+" Tabs
+map <leader>tn :tabnew<CR>
 
 " Reload .vimrc on runtime
 map <leader>cr :source ~/.vimrc<CR> 
 map <leader>co :e ~/.vimrc<CR>
 
+" === PLUGINS ===
 " NERDTree
 map <leader>n :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
 map <leader>bo :OpenBookmark 
+
+" nerdcommenter
+" Use space after comment delimiter
+let g:NERDSpaceDelims = 1
+
+" FZF
+map <leader>ff :FZF<CR>
 
 " === COC ===
 
