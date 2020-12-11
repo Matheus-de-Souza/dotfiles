@@ -119,13 +119,13 @@ map <leader>co :e ~/.vimrc<CR>
 
 " === PLUGINS ===
 " NERDTree
+autocmd VimEnter * NERDTree " Open NERDTree when vim starts
+let g:NERDTreeChDirMode = 2 " Changes vim cwd when NERDTree changes root dir
 map <leader>n :NERDTreeToggle<CR>
-let g:NERDTreeChDirMode=2
 map <leader>bo :OpenBookmark 
 
 " nerdcommenter
-" Use space after comment delimiter
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims = 1 " Use space after comment delimiter
 
 " FZF
 map <leader>ff :FZF<CR>
