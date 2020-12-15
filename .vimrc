@@ -104,6 +104,8 @@ nnoremap k gk
 inoremap jk <ESC>
 map Y y$
 
+map <M-z> :set wrap!<CR>
+
 " Shortcuts
 " Buffers
 map <leader>bb :Buffers<CR>
