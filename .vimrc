@@ -107,6 +107,10 @@ map Y y$
 map <M-z> :set wrap!<CR>
 
 " Shortcuts
+" Save/Load Files
+map <leader>w :w<CR>
+map <leader>e :e 
+
 " Buffers
 map <leader>bb :Buffers<CR>
 map <leader>bf :buffer 
@@ -114,6 +118,8 @@ map <leader>bn :bn<CR>
 map <leader>bp :bp<CR>
 " Tabs
 map <leader>tn :tabnew<CR>
+" netrw (File Explorer)
+map <leader>ee :Explore<CR>
 
 " Reload .vimrc on runtime
 map <leader>cr :source ~/.vimrc<CR> 
