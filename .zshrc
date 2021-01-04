@@ -2,7 +2,22 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/macbookmv/.oh-my-zsh"
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export ZSH="/home/matheus/.oh-my-zsh"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export ZSH="/Users/macbookmv/.oh-my-zsh" # Mac OSX
+elif [[ "$OSTYPE" == "cygwin" ]]; then
+        # POSIX compatibility layer and Linux environment emulation for Windows
+elif [[ "$OSTYPE" == "msys" ]]; then
+        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+elif [[ "$OSTYPE" == "win32" ]]; then
+        # I'm not sure this can happen.
+elif [[ "$OSTYPE" == "freebsd"* ]]; then
+        # ...
+else
+        # Unknown.
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,3 +112,30 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+zinit light denysdovhan/spaceship-prompt
+zinit light zsh-users/zsh-autosuggestions
+
+zinit light zsh-users/zsh-syntax-highlighting
+### End of Zinit's installer chunk
