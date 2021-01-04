@@ -1,3 +1,9 @@
+filetype plugin indent on
+set nocompatible
+set encoding=utf-8
+
+syntax enable
+
 " Use same directory for windows and linux
 if has('win32') || has('win64')
 	set runtimepath^=~/.vim
@@ -6,68 +12,64 @@ endif
 " Don't forget to run :PlugInstall
 " After changing plugins
 call plug#begin('~/.vim/plugged')
-  " Conquer Of Completion
+	" Conquer Of Completion
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Installed Language Servers
-  " CocInstall coc-tsserver
-  " CocInstall coc-vetur "Need to install: npm i eslint eslint-plugin-vue -D
-  " CocInstall coc-eslint
- 
-  " More expressiveness
-  Plug 'tpope/vim-surround'
+	" Installed Language Servers
+	" CocInstall coc-tsserver
+	" CocInstall coc-vetur "Need to install: npm i eslint eslint-plugin-vue -D
+	" CocInstall coc-eslint
+	" CocInstall coc-json
+
+	" More expressiveness
+	Plug 'tpope/vim-surround'
 
 	" On-demand loading
 	Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
-  Plug 'preservim/nerdcommenter'
+	Plug 'preservim/nerdcommenter'
 
-  " Fuzzy Finder
-  " On windows it's necessary to install with 'choco install fzf'
-  " https://github.com/junegunn/fzf.vim
-  " Remember to install: The Silver Searcher (Ag)
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+	" Fuzzy Finder
+	" On windows it's necessary to install with 'choco install fzf'
+	" https://github.com/junegunn/fzf.vim
+	" Remember to install: The Silver Searcher (Ag)
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 
 	" Colorschemes
 	Plug 'phanviet/vim-monokai-pro'
-	
+
 	" Syntax highlight improvements
 	Plug 'sheerun/vim-polyglot'
-	Plug 'posva/vim-vue'
+	" Plug 'posva/vim-vue'
 	Plug 'pangloss/vim-javascript'
 	Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
-set encoding=utf-8
-
-" Font
-set guifont=Fira\ Code:h10
-" https://github.com/tonsky/FiraCode/issues/462
-set renderoptions=type:directx
-
-set nocompatible
-syntax enable
-filetype plugin indent on
-
-" Use Monokai
-"colorscheme monokai
-
-" Use monokai_pro
-colorscheme monokai_pro
-set termguicolors
-let g:lightline = {
-      \ 'colorscheme': 'monokai_pro',
-      \ }
-
 if has('gui_running')
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
+	set guioptions-=m  "remove menu bar
+	set guioptions-=T  "remove toolbar
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
 endif
 
-set backspace=indent,eol,start
+if has("gui_macvim")
+	set macligatures
+endif
 
-set autoindent
+" Font
+set guifont=Fira\ Code:h10 " https://github.com/tonsky/FiraCode/issues/462
+set renderoptions=type:directx
+
+set number
+
+" Colorscheme
+set termguicolors
+set background=dark
+colorscheme monokai_pro
+let g:lightline = {
+			\ 'colorscheme': 'monokai_pro',
+			\ }
+
+set backspace=indent,eol,start
 
 set autoindent
 
@@ -127,8 +129,11 @@ map <leader>co :e ~/.vimrc<CR>
 
 " === PLUGINS ===
 " NERDTree
-autocmd VimEnter * NERDTree " Open NERDTree when vim starts
-let g:NERDTreeChDirMode = 2 " Changes vim cwd when NERDTree changes root dir
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree
+
+let g:NERDTreeChDirMode = 2 " Changes vim CWD when NERDTree changes root dir
 map <leader>n :NERDTreeToggle<CR>
 map <leader>bo :OpenBookmark 
 
@@ -160,37 +165,37 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+	" Recently vim can merge signcolumn and number column into one
+	set signcolumn=number
 else
-  set signcolumn=yes
+	set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+	inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+	inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -207,13 +212,13 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -227,11 +232,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	autocmd!
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder.
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -257,12 +262,12 @@ omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
 " Use CTRL-S for selections ranges.
