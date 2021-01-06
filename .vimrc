@@ -108,7 +108,7 @@ map Y y$
 
 map <M-z> :set wrap!<CR>
 
-" Shortcuts
+" === SHORTCUTS ===
 " Save/Load Files
 map <leader>w :w<CR>
 map <leader>e :e 
@@ -118,6 +118,18 @@ map <leader>bb :Buffers<CR>
 map <leader>bf :buffer 
 map <leader>bn :bn<CR>
 map <leader>bp :bp<CR>
+
+" Windows
+" Change window easily
+noremap <silent> <C-h> <C-w>h
+noremap <silent> <C-j> <C-w>j
+noremap <silent> <C-k> <C-w>k
+noremap <silent> <C-l> <C-w>l
+inoremap <silent> <C-h> <Esc><C-w>h
+inoremap <silent> <C-j> <Esc><C-w>j
+inoremap <silent> <C-k> <Esc><C-w>k
+inoremap <silent> <C-l> <Esc><C-w>l
+
 " Tabs
 map <leader>tn :tabnew<CR>
 " netrw (File Explorer)
@@ -142,6 +154,7 @@ let g:NERDSpaceDelims = 1 " Use space after comment delimiter
 
 " FZF
 map <leader>ff :FZF<CR>
+map <leader>fr :Fold<CR>zR
 
 " === COC ===
 
