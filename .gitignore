@@ -13,8 +13,12 @@
 /Music/
 /Pictures/
 /Videos/
+/Movies/
+/Library/
 
-# Windows...
+# SO Files
+/.CFUserTextEncoding
+/.DS_Store
 /3D\ Objects/
 /AppData/
 /Contacts/
@@ -24,31 +28,42 @@
 /Links/
 /MicrosoftEdgeBackups/
 /NTUSER.*
-/ntuser.*
 /OneDrive/
+/Public/
 /Recent@
 /Saved Games/
 /Searches/
+/ntuser.*
 
 # Program Configs I don't need to include
-/.android
 /.AndroidStudio*
+/.NERDTreeBookmarks
+/.VirtualBox
+/.android
 /.audacity*
 /.aws/
 /.boto
 /.cache
 /.cargo
 /.circleci/
+/.config/Code - OSS/
+/.config/Dharkael/
+/.config/GIMP/
+/.config/KDE/
+/.config/Kingsoft/
+/.config/QtProject.conf
+/.config/Trolltech.conf
+/.config/Unknown Organization/
+/.config/VirtualBox/
 /.config/akonadi*
 /.config/akregatorrc
 /.config/baloofilerc
 /.config/bluedevilglobalrc
 /.config/bomberrc
 /.config/caja/
-/.config/Code - OSS/
+/.config/coc/
 /.config/configstore/
 /.config/dconf/
-/.config/Dharkael/
 /.config/discoverrc
 /.config/doctl/
 /.config/dolphinrc
@@ -60,7 +75,6 @@
 /.config/filelightrc
 /.config/flameshot/
 /.config/gcloud/
-/.config/GIMP/
 /.config/gtk*
 /.config/gwenviewrc
 /.config/htop/
@@ -70,7 +84,6 @@
 /.config/kcminputrc
 /.config/kconf_updaterc
 /.config/kde.org
-/.config/KDE/
 /.config/kdeconnect
 /.config/kded5rc
 /.config/kdeglobals
@@ -78,7 +91,6 @@
 /.config/khelpcenterrc
 /.config/khotkeysrc
 /.config/kigorc
-/.config/Kingsoft/
 /.config/kmail2rc
 /.config/kmixctrlrc
 /.config/kmixrc
@@ -102,21 +114,17 @@
 /.config/pavucontrol.ini
 /.config/phishingurlrc
 /.config/pipewire-media-session/
-/.config/plasma-localerc
 /.config/plasma*
+/.config/plasma-localerc
 /.config/powerdevilrc
 /.config/powermanagementprofilesrc
 /.config/pulse/
-/.config/QtProject.conf
 /.config/sddmthemeinstallerrc
 /.config/session/
 /.config/specialmailcollectionsrc
 /.config/spectaclerc
 /.config/spotify/
 /.config/systemsettingsrc
-/.config/Trolltech.conf
-/.config/Unknown Organization/
-/.config/VirtualBox/
 /.config/vivaldi/
 /.config/vlc/
 /.config/webengineurlinterceptoradblockrc
@@ -142,13 +150,14 @@
 /.mozilla
 /.mysql
 /.mysql_history
-/.node_repl_history
 /.node-gyp
+/.node_repl_history
 /.npm
 /.nv
 /.nvidia-settings-rc
 /.nvm
 /.oh-my-git
+/.oh-my-zsh/
 /.openlp
 /.pki
 /.pulse-cookie
@@ -164,15 +173,21 @@
 /.terraform.d
 /.v8flags.*
 /.var/
+/.vim/.netrwhist
+/.vim/plugged/
 /.viminfo
-/.VirtualBox
 /.vivaldi_reporting_data
 /.vscode
 /.vscode-oss
 /.wget-hsts
 /.workrave
+/.zcompdump*
+/.zinit/
 /.zoom
-/.vim/.netrwhist
+/.zsh_history
+/.zsh_sessions/
+/.zshrc.pre-oh-my-zsh
+/AndroidStudioProjects/
 /VirtualBox\ VMs
 
 # Unknown files...
