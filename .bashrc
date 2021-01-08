@@ -8,8 +8,6 @@
 #=============================#
 #=== Configuration Aliases ===#
 #=============================#
-alias bashrc='vim ~/.bashrc'
-alias reload='source ~/.bashrc'
 alias xorgconf="sudo vim /etc/X11/xorg.conf"
 alias use_nvidia="optimus-manager --set-startup nvidia"
 alias use_intel="optimus-manager --set-startup intel"
@@ -42,7 +40,6 @@ alias gwc="git whatchanged"
 #==========================#
 #=== Copy/Paste Aliases ===#
 #==========================#
-
 case $OSTYPE in
   linux*)
     XCLIP=$(command -v xclip)
