@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
 
 	" More expressiveness
 	Plug 'tpope/vim-surround'
+	Plug 'tpope/vim-abolish'
 
 	" On-demand loading
 	Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
