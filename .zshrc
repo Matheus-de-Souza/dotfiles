@@ -139,3 +139,7 @@ zinit light zsh-users/zsh-autosuggestions
 
 zinit light zsh-users/zsh-syntax-highlighting
 ### End of Zinit's installer chunk
+
+# === ALIAS ===
+alias goi3="startx ~/.xinitrc i3"
+alias goplasma="startx ~/.xinitrc plasma"
