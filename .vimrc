@@ -121,6 +121,9 @@ map <leader>bn :bn<CR>
 map <leader>bp :bp<CR>
 
 " Windows
+" Split windows
+map <leader>sv :vsp<CR><C-l>
+map <leader>sh :sp<CR><C-j>
 " Change window easily
 noremap <silent> <C-h> <C-w>h
 noremap <silent> <C-j> <C-w>j
