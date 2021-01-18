@@ -57,7 +57,7 @@ if has("gui_macvim")
 endif
 
 " Font
-set guifont=Fira\ Code:h10 " https://github.com/tonsky/FiraCode/issues/462
+set guifont=Fira\ Code:h13 " https://github.com/tonsky/FiraCode/issues/462
 set renderoptions=type:directx
 
 set number
@@ -155,7 +155,8 @@ let g:NERDSpaceDelims = 1 " Use space after comment delimiter
 
 " FZF
 map <leader>ff :FZF<CR>
-map <leader>fr :Fold<CR>zR
+map <leader>fg :Ag 
+map <leader>fr :Fold<CR>zMzv
 
 " === COC ===
 
