@@ -110,6 +110,9 @@ map Y y$
 map <M-z> :set wrap!<CR>
 
 " === SHORTCUTS ===
+" 
+map <leader>ss :sort<CR>
+
 " Save/Load Files
 map <leader>w :w<CR>
 map <leader>e :e 
