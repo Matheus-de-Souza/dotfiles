@@ -60,7 +60,16 @@ endif
 set guifont=Fira\ Code:h13 " https://github.com/tonsky/FiraCode/issues/462
 set renderoptions=type:directx
 
-set number
+" Line numbers
+set number relativenumber
+
+" Show relative numbers when focus
+" Show line numbers when blur
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " Colorscheme
 set termguicolors
