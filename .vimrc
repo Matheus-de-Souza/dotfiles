@@ -113,10 +113,15 @@ inoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
+" Back to normal quickly
 inoremap jk <ESC>
+
 map Y y$
 
+" Toggle wrap text
 map <M-z> :set wrap!<CR>
+" For mac...
+map Ω :set wrap!<CR>
 
 " === SHORTCUTS ===
 " 
@@ -137,15 +142,33 @@ map <leader>bp :bp<CR>
 map <leader>sv :vsp<CR><C-l>
 map <leader>sh :sp<CR><C-j>
 " Change window easily
-noremap <silent> <C-h> <C-w>h
-noremap <silent> <C-j> <C-w>j
-noremap <silent> <C-k> <C-w>k
-noremap <silent> <C-l> <C-w>l
-inoremap <silent> <C-h> <Esc><C-w>h
-inoremap <silent> <C-j> <Esc><C-w>j
-inoremap <silent> <C-k> <Esc><C-w>k
-inoremap <silent> <C-l> <Esc><C-w>l
+noremap <silent> <M-h> <C-w>h
+noremap <silent> <M-j> <C-w>j
+noremap <silent> <M-k> <C-w>k
+noremap <silent> <M-l> <C-w>l
+inoremap <silent> <M-h> <Esc><C-w>h
+inoremap <silent> <M-j> <Esc><C-w>j
+inoremap <silent> <M-k> <Esc><C-w>k
+inoremap <silent> <M-l> <Esc><C-w>l
 
+" Change window easily (for Mac...)
+noremap <silent> ħ <C-w>h
+noremap <silent> ʝ <C-w>j
+noremap <silent> ĸ <C-w>k
+noremap <silent> ł <C-w>l
+inoremap <silent> ħ <Esc><C-w>h
+inoremap <silent> ʝ <Esc><C-w>j
+inoremap <silent> ĸ <Esc><C-w>k
+inoremap <silent> ł <Esc><C-w>l
+noremap <silent> ˙ <C-w>h
+noremap <silent> ∆ <C-w>j
+noremap <silent> ˚ <C-w>k
+noremap <silent> ¬ <C-w>l
+inoremap <silent> ˙ <Esc><C-w>h
+inoremap <silent> ∆ <Esc><C-w>j
+inoremap <silent> ˚ <Esc><C-w>k
+inoremap <silent> ¬ <Esc><C-w>l
+                  
 " Tabs
 map <leader>tn :tabnew<CR>
 " netrw (File Explorer)
