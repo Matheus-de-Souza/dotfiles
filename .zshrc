@@ -143,3 +143,8 @@ zinit light zsh-users/zsh-syntax-highlighting
 # === ALIAS ===
 alias goi3="startx ~/.xinitrc i3"
 alias goplasma="startx ~/.xinitrc plasma"
+
+if test -e /bin/sudo; then
+    alias pacman='pacman --color=auto'
+    alias yay='yay --color=auto --aur'
+fi

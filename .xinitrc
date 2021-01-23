@@ -53,7 +53,7 @@ elif [[ $session == "i3" ]]; then
 	xset b 10 30 200
 
 	# Use Natural Scrolling on my touchpad
-	xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+	#xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 
 	#xrandr --output HDMI1 --right-of eDP1 --auto & # Set monitors config
 	xrandr --auto
@@ -66,6 +66,7 @@ elif [[ $session == "i3" ]]; then
 	redshift-gtk & # Caring for my eyes
 	flameshot & # Prinscreen software
 	workrave & # Caring for my body and eyes health
+	dropbox & 
 
 	i3
 fi
