@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
 	" CocInstall coc-vetur "Need to install: npm i eslint eslint-plugin-vue -D
 	" CocInstall coc-eslint
 	" CocInstall coc-json
+	" CocInstall coc-phpls
 
 	" More expressiveness
 	Plug 'tpope/vim-surround'
