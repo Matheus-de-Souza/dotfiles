@@ -39,10 +39,14 @@ call plug#begin('~/.vim/plugged')
 	Plug 'phanviet/vim-monokai-pro'
 
 	" Syntax highlight improvements
-	Plug 'sheerun/vim-polyglot'
+	Plug 'sheerun/vim-polyglot' 
+
 	" Plug 'posva/vim-vue'
-	Plug 'pangloss/vim-javascript'
-	Plug 'HerringtonDarkholme/yats.vim'
+	
+	"Plug 'pangloss/vim-javascript'  " Javascript syntax highlight
+	"Plug 'HerringtonDarkholme/yats.vim' " Typescript syntax highlight
+	Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlight
+
 call plug#end()
 
 if has('gui_running')
@@ -126,6 +130,9 @@ map Ω :set wrap!<CR>
 " === SHORTCUTS ===
 " 
 map <leader>ss :sort<CR>
+
+noremap <C-e> 3<C-e>
+noremap <C-y> 3<C-y>
 
 " Save/Load Files
 map <leader>w :w<CR>
