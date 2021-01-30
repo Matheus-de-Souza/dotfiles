@@ -77,8 +77,13 @@ augroup numbertoggle
 augroup END
 
 " Colorscheme
-set termguicolors
-set background=dark
+" This code is needed to allow tmux on tmux with konsole
+if &term =~# '256color' && ( &term =~# '^screen'  || &term =~# '^tmux' )
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+
 colorscheme monokai_pro
 let g:lightline = {
 			\ 'colorscheme': 'monokai_pro',
