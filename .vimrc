@@ -97,6 +97,9 @@ set incsearch
 set showmatch
 set hlsearch
 
+set scrolloff=3
+set sidescrolloff=5
+
 set wrap
 set textwidth=100
 set formatoptions=qrn1
@@ -132,8 +135,8 @@ map Ω :set wrap!<CR>
 " 
 map <leader>ss :sort<CR>
 
-noremap <C-e> 3<C-e>
-noremap <C-y> 3<C-y>
+noremap <C-e> 2<C-e>
+noremap <C-y> 2<C-y>
 
 " Save/Load Files
 map <leader>w :w<CR>
