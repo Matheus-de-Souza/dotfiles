@@ -152,3 +152,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 # === ALIAS ===
 alias goi3="startx ~/.xinitrc i3"
 alias goplasma="startx ~/.xinitrc plasma"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
