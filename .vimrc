@@ -48,6 +48,8 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'HerringtonDarkholme/yats.vim' " Typescript syntax highlight
 	Plug 'ekalinin/Dockerfile.vim' " Dockerfile syntax highlight
 
+	Plug 'habamax/vim-asciidoctor'
+
 call plug#end()
 
 if has('gui_running')
