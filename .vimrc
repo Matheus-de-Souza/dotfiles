@@ -68,14 +68,14 @@ set guifont=Fira\ Code:h13 " https://github.com/tonsky/FiraCode/issues/462
 set renderoptions=type:directx
 
 " Line numbers
-set number relativenumber
+set nonumber
 
 " Show relative numbers when focus
 " Show line numbers when blur
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+  autocmd BufEnter,FocusGained,InsertLeave * set number relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set nonumber norelativenumber
 augroup END
 
 " Colorscheme
