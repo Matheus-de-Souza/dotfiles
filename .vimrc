@@ -117,12 +117,6 @@ set showmode
 " Fix movements
 let mapleader = ","
 
-for i in range(97,122)
-	let c = nr2char(i)
-	exec "map \e".c." <M-".c.">"
-	exec "map! \e".c." <M-".c.">"
-endfor
-
 " Enforce stop using arrows
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -143,7 +137,7 @@ map Y y$
 
 " Toggle wrap text
 if !has("macunix")
-	map <M-z> :set wrap!<CR>
+	map \ez :set wrap!<CR>
 else
 	map Ω :set wrap!<CR>
 endif
@@ -173,14 +167,14 @@ map <leader>sH :sp<CR>
 "
 " Change window easily
 if !has("macunix")
-	noremap <silent> <M-h> <C-w>h
-	noremap <silent> <M-j> <C-w>j
-	noremap <silent> <M-k> <C-w>k
-	noremap <silent> <M-l> <C-w>l
-	inoremap <silent> <M-h> <Esc><C-w>h
-	inoremap <silent> <M-j> <Esc><C-w>j
-	inoremap <silent> <M-k> <Esc><C-w>k
-	inoremap <silent> <M-l> <Esc><C-w>l
+	noremap <silent> <C-h> <C-w>h
+	noremap <silent> <C-j> <C-w>j
+	noremap <silent> <C-k> <C-w>k
+	noremap <silent> <C-l> <C-w>l
+	inoremap <silent> <C-h> <Esc><C-w>h
+	inoremap <silent> <C-j> <Esc><C-w>j
+	inoremap <silent> <C-k> <Esc><C-w>k
+	inoremap <silent> <C-l> <Esc><C-w>l
 else
 	noremap <silent> ħ <C-w>h
 	noremap <silent> ʝ <C-w>j
