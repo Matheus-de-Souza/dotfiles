@@ -3,7 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if [[ "$OSTYPE" == "linux"* ]]; then
   export ZSH="/home/matheus/.oh-my-zsh"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export ZSH="/Users/macbookmv/.oh-my-zsh" # Mac OSX
@@ -18,6 +18,15 @@ elif [[ "$OSTYPE" == "freebsd"* ]]; then
 else
         # Unknown.
 fi
+
+case $OSTYPE in
+  linux*)
+    XCLIP=$(command -v xclip)
+    [[ $XCLIP ]] && \
+      alias pbcopy="$XCLIP -in -selection clipboard" && \
+      alias pbpaste="$XCLIP -selection clipboard -o"
+  ;;
+esac
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -148,3 +157,5 @@ if test -e /bin/sudo; then
     alias pacman='pacman --color=auto'
     alias yay='yay --color=auto --aur'
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin"
