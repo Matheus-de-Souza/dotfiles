@@ -53,7 +53,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 if has('gui_running')
-	set guioptions-=m  "remove menu bar
+	" set guioptions-=m  "remove menu bar
 	set guioptions-=T  "remove toolbar
 	set guioptions-=r  "remove right-hand scroll bar
 	set guioptions-=L  "remove left-hand scroll bar
@@ -64,19 +64,24 @@ if has("gui_macvim")
 endif
 
 " Font
-set guifont=Fira\ Code:h13 " https://github.com/tonsky/FiraCode/issues/462
-set renderoptions=type:directx
+if has('gui_running')
+	set guifont=Fira\ Code\ 13 " https://github.com/tonsky/FiraCode/issues/462
+else 
+	set guifont=Fira\ Code:h13
+endif
+
+set renderoptions=type:directx " https://github.com/tonsky/FiraCode/issues/462
 
 " Line numbers
 set nonumber
 
 " Show relative numbers when focus
 " Show line numbers when blur
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set number relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set nonumber norelativenumber
-augroup END
+" augroup numbertoggle
+  " autocmd!
+  " autocmd BufEnter,FocusGained,InsertLeave * set number relativenumber
+  " autocmd BufLeave,FocusLost,InsertEnter   * set nonumber norelativenumber
+" augroup END
 
 " Colorscheme
 " This code is needed to allow tmux on tmux with konsole
@@ -108,6 +113,7 @@ set scrolloff=3
 set sidescrolloff=5
 
 set wrap
+set linebreak
 set textwidth=100
 set formatoptions=qrn1
 "set colorcolumn=100
