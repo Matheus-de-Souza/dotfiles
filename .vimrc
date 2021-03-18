@@ -201,7 +201,8 @@ else
 endif
 
 " Tabs
-map <leader>tn :tabnew<CR>
+map <leader>tn :tab split<CR>
+map <leader>tN :tabnew<CR>
 " netrw (File Explorer)
 map <leader>ee :Explore<CR>
 
