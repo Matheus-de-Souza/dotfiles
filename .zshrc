@@ -150,12 +150,13 @@ zinit light zsh-users/zsh-syntax-highlighting
 ### End of Zinit's installer chunk
 
 # === ALIAS ===
-alias goi3="startx ~/.xinitrc i3"
-alias goplasma="startx ~/.xinitrc plasma"
-
 if test -e /bin/sudo; then
     alias pacman='pacman --color=auto'
     alias yay='yay --color=auto --aur'
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin"
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
