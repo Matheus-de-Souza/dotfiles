@@ -3,6 +3,7 @@ set nocompatible
 set encoding=utf-8
 
 syntax enable
+set re=0
 
 " Use same directory for windows and linux
 if has('win32') || has('win64')
