@@ -153,6 +153,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 if test -e /bin/sudo; then
     alias pacman='pacman --color=auto'
     alias yay='yay --color=auto --aur'
+    alias k='kubectl'
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin"
