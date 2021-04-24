@@ -154,6 +154,8 @@ if test -e /bin/sudo; then
     alias pacman='pacman --color=auto'
     alias yay='yay --color=auto --aur'
     alias k='kubectl'
+    alias powersaving_audio_off='echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save'
+    alias powersaving_audio_on='echo 1 | sudo tee /sys/module/snd_hda_intel/parameters/power_save'
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin"
