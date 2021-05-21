@@ -204,10 +204,17 @@ endif
 " Tabs
 map <leader>tn :tabnew<CR>
 map <leader>tN :tab split<CR>
+map <leader>tm :tabmove +1<CR>
+map <leader>tM :tabmove -1<CR>
 noremap <PageUp> :tabprev<CR>
 noremap <PageDown> :tabnext<CR>
 noremap <leader><PageUp> :tabmove -1<CR>
 noremap <leader><PageDown> :tabmove +1<CR>
+
+" Toggles
+map <leader>th :set hlsearch!<CR>
+map <leader>tp :set paste!<CR>
+map <leader>tw :set wrap!<CR>
 
 " netrw (File Explorer)
 map <leader>ee :Explore<CR>
