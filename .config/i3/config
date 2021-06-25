@@ -197,7 +197,7 @@ bindsym $mod+Shift+Ctrl+5 move container to workspace $ws5b
 bindsym $mod+Shift+Ctrl+6 move container to workspace $ws6b
 
 # reload the configuration file
-bindsym $mod4+c exec "emacs .config/i3/config"
+bindsym $mod4+c exec "gvim .config/i3/config"
 bindsym $mod4+Shift+c restart
 # exit i3 (logs you out of your X session)
 bindsym $mod4+e exit
@@ -205,16 +205,10 @@ bindsym $mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the poweroff sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-  # These bindings trigger as soon as you enter the resize mode
-
-  # Pressing left will shrink the window’s width.
-  # Pressing right will grow the window’s width.
-  # Pressing up will shrink the window’s height.
-  # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow height 10 px or 10 ppt
-  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize shrink height 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
@@ -222,13 +216,51 @@ mode "resize" {
   bindsym Up resize grow height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
-  # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
 }
 
 bindsym $mod+r mode "resize"
+
+mode "mouse" {
+  # normal
+  bindsym h exec xdotool mousemove_relative -- -30 0
+  bindsym j exec xdotool mousemove_relative -- 0 30
+  bindsym k exec xdotool mousemove_relative -- 0 -30
+  bindsym l exec xdotool mousemove_relative -- 30 0
+
+  bindsym Left exec xdotool mousemove_relative -- -30 0
+  bindsym Down exec xdotool mousemove_relative -- 0 30
+  bindsym Up exec xdotool mousemove_relative -- 0 -30
+  bindsym Right exec xdotool mousemove_relative -- 30 0
+
+  # for precision
+  bindsym $mod+h exec xdotool mousemove_relative -- -5 0
+  bindsym $mod+j exec xdotool mousemove_relative -- 0 5
+  bindsym $mod+k exec xdotool mousemove_relative -- 0 -5
+  bindsym $mod+l exec xdotool mousemove_relative -- 5 0
+
+  bindsym $mod+Left exec xdotool mousemove_relative -- -5 0
+  bindsym $mod+Down exec xdotool mousemove_relative -- 0 5
+  bindsym $mod+Up exec xdotool mousemove_relative -- 0 -5
+  bindsym $mod+Right exec xdotool mousemove_relative -- 5 0
+
+  # click
+  bindsym a exec xdotool click 1 # left
+  bindsym s exec xdotool click 2 # middle
+  bindsym d exec xdotool click 3 # right
+  bindsym w exec xdotool click 5 # wheel down
+  bindsym e exec xdotool click 4 # wheel up
+  bindsym Shift+a exec xdotool click 1 # shift + left = mark
+  bindsym Shift+w exec xdotool click 4 # control + wheel up = zoom
+  bindsym Shift+e exec xdotool click 5 # control + wheel down = zoom
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+m mode "default"
+}
+bindsym $mod+m mode "mouse"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -246,7 +278,6 @@ bar {
 bar {
   output HDMI1
   status_command i3status --config ~/.config/i3/.i3status.HDMI1.conf
-  binding_mode_indicator no
   tray_output none
 }
 

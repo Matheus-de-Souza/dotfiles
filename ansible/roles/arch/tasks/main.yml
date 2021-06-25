@@ -1,0 +1,112 @@
+---
+
+- name: Install Packages (Essential)
+  become: yes
+  community.general.pacman:
+    state: present
+    name:
+      - ldns # Para poder usar o drill para questões de DNS
+      - caja
+      - code
+      - curl
+      - docker
+      - dunst
+      - dnsmasq
+      - gimp
+      - git
+      - gnu-free-fonts
+      - grub
+      - htop
+      - i3-gaps
+      - i3blocks
+      - i3lock
+      - i3status
+      - inkscape
+      - iwd
+      - konsole
+      - linux-zen
+      - linux-zen-headers
+      - man-db
+      - mesa
+      - neofetch
+      - networkmanager
+      - noto-fonts
+      - nvidia
+      - nvidia-utils
+      - os-prober
+      - p7zip
+      - pacman-contrib
+      - picom
+      - pulseaudio
+      - redshift
+      - reflector
+      - rofi
+      - sudo
+      - telegram-desktop
+      - the_silver_searcher
+      - tmux
+      - ttf-cascadia-code
+      - udisks2
+      - vim-runtime
+      - vivaldi
+      - vlc
+      - wget
+      - xclip
+      # abaixo os programas para fazer mágica com o teclado
+      - xcape
+      - xdotool
+
+      #- name: Install Packages (Useful)
+      #  become: yes
+      #  community.general.pacman:
+      #    state: present
+      #    name:
+      #      - arandr
+      #      - aria2
+      #      - audacity
+      #      - aws-cli
+      #      - cheese
+      #      - flameshot
+      #      - hugo
+      #      - jq
+      #      - min # browser
+      #      - mysql-workbench
+      #      - obs-studio
+      #      - terraform
+      #      - virtualbox
+      #      #- virtualbox-host-dkms
+
+- name: DNS Management (Network Manager)
+  become: yes
+  ansible.builtin.copy:
+    src: files/dns.conf
+    dest: /etc/NetworkManager/conf.d/dns.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: DNS Management (dnsmasq)
+  become: yes
+  ansible.builtin.copy:
+    src: files/dnsmasq.conf
+    dest: /etc/dnsmasq.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Systemd start NetworkManager
+  become: yes
+  ansible.builtin.systemd:
+    name: NetworkManager
+    enabled: yes
+    state: started
+
+- name: Systemd start dnsmasq
+  become: yes
+  ansible.builtin.systemd:
+    name: dnsmasq
+    enabled: yes
+    state: started
+
+
+
