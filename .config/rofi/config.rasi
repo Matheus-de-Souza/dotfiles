@@ -2,7 +2,6 @@ configuration {
 	modi: "window,run,ssh,drun";
 	font: "mono 12";
 	show-icons: true;
-	theme: "gruvbox-dark";
 /*	terminal: "rofi-sensible-terminal";*/
 
 /*	width: 50;*/
@@ -144,3 +143,5 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+
+@theme "gruvbox-dark"

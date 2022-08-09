@@ -37,15 +37,15 @@ xset b 10 30 200
 # Use Natural Scrolling on my touchpad
 #xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 
-#xrandr --output HDMI1 --right-of eDP1 --auto & # Set monitors config
-xrandr --auto
+xrandr --output HDMI-1 --left-of eDP1 --auto & # Set monitors config
+# xrandr --auto
 
 picom & # Xorg compositor
 dunst & # Notification manager
-redshift-gtk -l -29.6812544:-51.1082496 & # Caring for my eyes
+redshift-gtk -t 4500K:3500K -l -29.6812544:-51.1082496 & # Caring for my eyes
 flameshot & # Prinscreen software
 workrave & # Caring for my body and eyes health
 dropbox & 
-
-i3
+(sleep 20 && onedrive_tray) &
+i3 
 

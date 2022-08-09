@@ -156,10 +156,12 @@ if test -e /bin/sudo; then
     alias k='kubectl'
     alias powersaving_audio_off='echo 0 | sudo tee /sys/module/snd_hda_intel/parameters/power_save'
     alias powersaving_audio_on='echo 1 | sudo tee /sys/module/snd_hda_intel/parameters/power_save'
+    alias powersaving_on="xset +dpms && xset s on"
+    alias powersaving_off="xset -dpms && xset s off"
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin"
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec startx
-fi
+# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  # exec startx
+# fi

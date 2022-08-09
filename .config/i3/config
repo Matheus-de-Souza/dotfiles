@@ -39,7 +39,7 @@ for_window [class=".*"] border pixel 1
 #gaps outer 10
 
 #exec_always --no-startup-id feh --bg-fill ~/wallpapers/wallhaven-492ygw_1600x900.png
-exec_always --no-startup-id feh --bg-fill ~/wallpapers/wallhaven-n6ldg6_1600x900.png
+exec_always --no-startup-id feh --bg-fill ~/Downloads/benoit-deschasaux-XA8xxmPdMZY-unsplash.jpg
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -66,6 +66,15 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym F12 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $refresh_i3status
+bindsym F11 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_i3status
+
+# Media player controls
+bindsym F7 exec playerctl previous
+bindsym F8 exec playerctl play-pause
+bindsym F9 exec playerctl next
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -104,11 +113,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-# bindsym $mod+h split h
-
 # split in vertical orientation
-# bindsym $mod+v split v
+bindsym $mod+v split v
+
+# split in horizontal orientation
+bindsym $mod+Shift+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -154,12 +163,19 @@ workspace $ws4 output primary
 workspace $ws5 output primary
 workspace $ws6 output primary
 
-workspace $ws1b output HDMI1
-workspace $ws2b output HDMI1
-workspace $ws3b output HDMI1
-workspace $ws4b output HDMI1
-workspace $ws5b output HDMI1
-workspace $ws6b output HDMI1
+workspace $ws1b output HDMI-1
+workspace $ws2b output HDMI-1
+workspace $ws3b output HDMI-1
+workspace $ws4b output HDMI-1
+workspace $ws5b output HDMI-1
+workspace $ws6b output HDMI-1
+
+workspace $ws1b output eDP-1-1
+workspace $ws2b output eDP-1-1
+workspace $ws3b output eDP-1-1
+workspace $ws4b output eDP-1-1
+workspace $ws5b output eDP-1-1
+workspace $ws6b output eDP-1-1
 
 # assign [class="(?i)Spotify"] workspace number "7: Music"
 # assign [class="(?i)Spotify"] "7: Music"
@@ -216,6 +232,17 @@ mode "resize" {
   bindsym Up resize grow height 10 px or 10 ppt
   bindsym Right resize grow width 10 px or 10 ppt
 
+  bindsym Shift+h resize shrink width 1 px or 1 ppt
+  bindsym Shift+j resize shrink height 1 px or 1 ppt
+  bindsym Shift+k resize grow height 1 px or 1 ppt
+  bindsym Shift+l resize grow width 1 px or 1 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym Shift+Left resize shrink width 1 px or 1 ppt
+  bindsym Shift+Down resize shrink height 1 px or 1 ppt
+  bindsym Shift+Up resize grow height 1 px or 1 ppt
+  bindsym Shift+Right resize grow width 1 px or 1 ppt
+
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
@@ -252,9 +279,11 @@ mode "mouse" {
   bindsym d exec xdotool click 3 # right
   bindsym w exec xdotool click 5 # wheel down
   bindsym e exec xdotool click 4 # wheel up
-  bindsym Shift+a exec xdotool click 1 # shift + left = mark
-  bindsym Shift+w exec xdotool click 4 # control + wheel up = zoom
-  bindsym Shift+e exec xdotool click 5 # control + wheel down = zoom
+  bindsym 1 exec xdotool mousedown --clearmodifiers 1 # mouse down left
+  bindsym Ctrl+w exec xdotool click 4 # control + wheel up = zoom
+  bindsym Ctrl+e exec xdotool click 5 # control + wheel down = zoom
+  bindsym Shfit+w exec xdotool click 4 # shift + wheel up = horizontal scroll
+  bindsym Shfit+e exec xdotool click 5 # shift + wheel down = horizontal scroll
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -265,7 +294,6 @@ bindsym $mod+m mode "mouse"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  output primary
   status_command i3status --config ~/.config/i3/.i3status.conf
   separator_symbol " | "
   workspace_buttons yes
@@ -275,11 +303,27 @@ bar {
   }
 }
 
-bar {
-  output HDMI1
-  status_command i3status --config ~/.config/i3/.i3status.HDMI1.conf
-  tray_output none
-}
+# bar {
+  # output HDMI-1
+  # status_command i3status --config ~/.config/i3/.i3status.secondary.conf
+  # separator_symbol " | "
+  # workspace_buttons yes
+  # colors {
+      # background #222222
+      # statusline #dddddd
+  # }
+# }
+
+# bar {
+  # output eDP-1-1
+  # status_command i3status --config ~/.config/i3/.i3status.secondary.conf
+  # separator_symbol " | "
+  # workspace_buttons yes
+  # colors {
+      # background #222222
+      # statusline #dddddd
+  # }
+# }
 
 #exec --no-startup-id i3-msg 'workspace 1; exec firefox; sleep 2;'
 #exec --no-startup-id i3-msg 'workspace 3; exec emacsclient -nc; sleep 2;'
